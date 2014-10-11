@@ -8,15 +8,19 @@ void reverseString(char *str)
     {
         return;
     }
-        
+    
+    unsigned int len(strlen(str));
     char *p1 = str;
-    char *p2 = strlen(str) - 1;
-    char *tmp(0);
+    char *p2 = str + len - 1;
+    char tmp;
     while(p1 < p2)
     {
-        tmp = p1;
-        p2 = p1;
-        p2 = tmp;
+        tmp = *p1;
+        *p2 = *p1;
+        *p2 = tmp;
+        
+        ++p1;
+        --p2;
     }
 }
 
@@ -32,5 +36,5 @@ int main()
     
     reverseString(str);
     
-    cout << "Reversed string looks like: " << *str << endl;
+    cout << "Reversed string looks like: " << str << endl;
 }
